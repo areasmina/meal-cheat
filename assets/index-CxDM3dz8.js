@@ -11219,12 +11219,7 @@ void main() {
       </article>
 
       <div>
-        <div class="energy-head">
-          <h1 id="eatHeading">How's your energy right now?</h1>
-          <button type="button" class="chip" data-action="toggle-eat-fridge-only" aria-pressed="${a.eatFridgeOnly!==!1}">
-            ${te("fridge",15)} ${a.eatFridgeOnly!==!1?`✓ Fridge-Ready (${e.length})`:`All Moods (${e.length})`}
-          </button>
-        </div>
+        <h1 id="eatHeading" style="font-size:clamp(18px,3vw,22px);margin:0 0 10px">How's your energy right now?</h1>
         <div class="energy-grid" role="group" aria-label="Energy level">
           ${p.map(y=>`
             <button type="button" class="energy-btn" data-action="set-energy" data-energy="${y.energy}" aria-pressed="${a.energy===y.energy}">
