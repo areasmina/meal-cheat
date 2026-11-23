@@ -11573,12 +11573,12 @@ void main() {
         </div>
       </div>
 
-      <div class="row" style="gap:8px;flex-wrap:wrap">
-        <button type="button" class="btn ${n.listLocked?"":"primary"}" style="flex:1" data-action="lock-weekly-list">
-          ${n.listLocked?`${Y("check",15)} List Set for ${H(n.shopDay)} (${e.items.length} items · ${Fe(e.estimatedTotal)})`:`Set & Lock Weekly List for ${H(n.shopDay)} (${e.items.length} items · ${Fe(e.estimatedTotal)})`}
+      <div class="btn-pair">
+        <button type="button" class="btn ${n.listLocked?"":"primary"}" data-action="lock-weekly-list">
+          ${n.listLocked?`${Y("check",15)} ${H(n.shopDay)} List Set (${e.items.length} · ${Fe(e.estimatedTotal)})`:`Lock ${H(n.shopDay)} List (${e.items.length} · ${Fe(e.estimatedTotal)})`}
         </button>
         ${e.items.length?`
-          <button type="button" class="btn small" data-action="stock-all-trip">Stock All into Fridge</button>
+          <button type="button" class="btn" data-action="stock-all-trip">Stock All into Fridge</button>
         `:""}
       </div>
     </article>
