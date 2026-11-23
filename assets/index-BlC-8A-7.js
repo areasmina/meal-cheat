@@ -11227,14 +11227,17 @@ void main() {
         </div>
 
         <div class="row-between" style="border-top:1px solid var(--line);padding-top:10px">
-          <span class="sub">${Y("fridge",16)} Fridge: <b>${a.fridgeMeals}</b> meals · <b>${a.fridgeDrinks}</b> drinks</span>
-          <button type="button" class="btn small" data-action="go-takeout">${Y("takeout",16)} Takeout & Platters</button>
+          <span class="sub">${Y("fridge",16)} Prepped in Fridge: <b>${a.fridgeMeals}</b> meals · <b>${a.fridgeDrinks}</b> drinks</span>
+          <button type="button" class="btn small" data-action="go-takeout">${Y("takeout",16)} Order Takeout?</button>
         </div>
         ${m?"":`
-          <div class="chips" style="padding-top:4px">
-            <button type="button" class="chip" data-action="quick-spend" data-amt="5" data-cat="treat" data-label="$5 Pizza Pickup">+ $5 Pizza</button>
-            <button type="button" class="chip" data-action="quick-spend" data-amt="10" data-cat="treat" data-label="$10 Pizza Pickup">+ $10 Pizza</button>
-            <button type="button" class="chip" data-action="quick-spend" data-amt="48" data-cat="grocery" data-label="Weekly Grocery Order">+ $48 Groceries</button>
+          <div style="display:grid;gap:6px;padding-top:2px">
+            <span class="sub" style="font-size:var(--fs-xs)">Quick-log what you spent today (updates your budget):</span>
+            <div class="chips">
+              <button type="button" class="chip" data-action="quick-spend" data-amt="5" data-cat="treat" data-label="$5 Pizza Pickup">Spent $5 Pizza</button>
+              <button type="button" class="chip" data-action="quick-spend" data-amt="10" data-cat="treat" data-label="$10 Pizza Pickup">Spent $10 Pizza</button>
+              <button type="button" class="chip" data-action="quick-spend" data-amt="48" data-cat="grocery" data-label="Weekly Grocery Order">Spent $48 Groceries</button>
+            </div>
           </div>
         `}
       </article>
