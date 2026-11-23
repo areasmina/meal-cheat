@@ -1,14 +1,25 @@
 {
   "name": "Meal Cheat",
   "short_name": "Meal Cheat",
-  "description": "Low-energy meals, a $340/month food budget, batch cooking and Cheat Day.",
+  "description": "Eat 3 meals a day within budget with zero decision fatigue, mood-based groceries, and a 3D panda garden.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0e1116",
   "theme_color": "#0e1116",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
