@@ -11340,8 +11340,9 @@ void main() {
       </article>
     </section>
   `}function e0(a){const e=(a.recipeSearch||"").trim().toLowerCase(),t=a.recipeSourceFilter||"all",n=a.recipes.filter(r=>r.source==="instagram").length,i=a.recipes.length-n;let o=a.recipes.filter(r=>!(!xs(r,a)||t==="instagram"&&r.source!=="instagram"||t==="youtube"&&r.source==="instagram"||a.recipeKindFilter!=="all"&&r.kind!==a.recipeKindFilter||a.recipeEffortFilter!=="all"&&r.effort!==a.recipeEffortFilter||e&&!`${r.title} ${r.author||""} ${(r.ingredients||[]).join(" ")} ${(r.tags||[]).join(" ")} ${r.transcript||""}`.toLowerCase().includes(e)||a.recipeCanMakeOnly&&!Ta(r,a.catalog).ready));a.recipeMatchMyFridge&&(o=[...o].map(r=>({r,m:Ta(r,a.catalog)})).filter(({m:r})=>r.haveCount>0).sort((r,c)=>c.m.haveCount/Math.max(1,c.m.totalCount)-r.m.haveCount/Math.max(1,r.m.totalCount)||c.m.haveCount-r.m.haveCount).map(({r})=>r));const s=a.recipesLimit||60,l=o.slice(0,s);return`
-    <div class="field">
+    <div class="search-bubble">
       <input id="recipeSearchInput" class="input" type="search" placeholder="Search dish, @creator, ingredient, or transcript (e.g. pupusa, salpicón, mapo tofu)..." value="${H(a.recipeSearch)}" data-input="recipe-search">
+      <button type="button" class="btn primary search-add-btn" data-action="open-add-recipe">+ Add</button>
     </div>
 
     <div class="chips" role="group" aria-label="Filter by source">
@@ -11492,12 +11493,9 @@ void main() {
     </article>
   `}function a0(a){return`
     <section class="screen" aria-labelledby="recipesHeading">
-      <div class="row-between">
-        <div>
-          <h1 id="recipesHeading">Recipes & Takeout</h1>
-          <p class="sub">Adding any recipe syncs ingredients straight to your Master Catalog.</p>
-        </div>
-        <button type="button" class="btn primary small" data-action="open-add-recipe">+ Add Recipe</button>
+      <div>
+        <h1 id="recipesHeading">Recipes & Takeout</h1>
+        <p class="sub">Adding any recipe syncs ingredients straight to your Master Catalog.</p>
       </div>
 
       <div class="segmented" role="group" aria-label="Recipes view">
@@ -11755,16 +11753,14 @@ void main() {
     </section>
   `}const c0=[{id:"all",label:"All Recipes",icon:"catalog"},{id:"youtube",label:"YouTube Videos",icon:"video"},{id:"instagram",label:"Instagram Reels",icon:"camera"},{id:"ready",label:"Ready in Fridge",icon:"fridge"},{id:"quick",label:"Quick ≤10m",icon:"quick"},{id:"drink",label:"Drinks & Boba",icon:"drink"},{id:"snack",label:"Snacks",icon:"snack"},{id:"comfort",label:"Comfort",icon:"comfort"}];function d0(a){const e=a.exploreFilter||"all",t=(a.exploreSearch||"").trim().toLowerCase(),n=a.exploreLimit||48,i=a.recipes.filter(l=>xs(l,a)),o=i.filter(l=>!(e==="youtube"&&l.source==="instagram"||e==="instagram"&&l.source!=="instagram"||e==="ready"&&!Ta(l,a.catalog).ready||e==="quick"&&!["nocook","quick"].includes(l.effort)||e==="drink"&&l.kind!=="drink"||e==="snack"&&l.kind!=="snack"||e==="comfort"&&l.kind!=="comfort"&&!(l.tags||[]).includes("comfort")||t&&!`${l.title} ${l.author||""} ${(l.ingredients||[]).join(" ")} ${(l.tags||[]).join(" ")} ${l.transcript||""}`.toLowerCase().includes(t))),s=o.slice(0,n);return`
     <section class="screen" aria-labelledby="exploreHeading">
-      <div class="row-between">
-        <div>
-          <h1 id="exploreHeading">Explore Recipes</h1>
-          <p class="sub">Browse visual video thumbnails across all <b>${i.length}</b> dishes — tap any card to watch, read transcripts &amp; cook.</p>
-        </div>
-        <button type="button" class="btn primary small" data-action="open-add-recipe">+ Add</button>
+      <div>
+        <h1 id="exploreHeading">Explore Recipes</h1>
+        <p class="sub">Browse visual video thumbnails across all <b>${i.length}</b> dishes — tap any card to watch, read transcripts &amp; cook.</p>
       </div>
 
-      <div class="field">
+      <div class="search-bubble">
         <input id="exploreSearchInput" class="input" type="search" placeholder="Search video title, @creator, ingredient, or transcript..." value="${H(a.exploreSearch||"")}" data-input="explore-search">
+        <button type="button" class="btn primary search-add-btn" data-action="open-add-recipe">+ Add</button>
       </div>
 
       <div class="chips" role="group" aria-label="Explore filters">
