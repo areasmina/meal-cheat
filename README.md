@@ -41,8 +41,8 @@ meal-cheat/
 └── src/
     ├── main.js                 # App entrypoint, render loop, delegated event/form handlers
     ├── styles/
-    │   ├── tokens.css          # Dark/light color tokens, type scale, radii, spacing
-    │   └── app.css             # Responsive minimalist styles & horizontal scroll hints
+    │   ├── tokens.css          # Kitchen Dispatch zine palette (dark carbon & newsprint light), type & 4-48px scale
+    │   └── app.css             # "Frame loud, content quiet" editorial layout, torn-tape tags, floating obsidian dock
     ├── state/
     │   └── store.js            # Local-first state, normalization, safeUrl/esc, savings & match selectors
     ├── data/
