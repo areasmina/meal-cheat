@@ -1,4 +1,4 @@
-const CACHE = 'meal-cheat-v3';
+const CACHE = 'meal-cheat-v4';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -8,8 +8,7 @@ self.addEventListener('install', (event) => {
         './index.html',
         './manifest.webmanifest',
         './icons/icon-192.png',
-        './icons/icon-512.png',
-        './models/panda_mochi.glb'
+        './icons/icon-512.png'
       ]).catch(() => {})
     )
   );
@@ -31,7 +30,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // Network-first for HTML documents
+  // Network-first for HTML documents so app updates arrive immediately
   if (req.mode === 'navigate' || url.pathname.endsWith('.html')) {
     event.respondWith(
       fetch(req)
@@ -45,7 +44,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for static assets, JS/CSS bundles, models, and icons
+  // Cache-first for hashed JS/CSS chunks, icons, and unlockable .glb accessories
   event.respondWith(
     caches.match(req).then((cached) => {
       if (cached) return cached;
