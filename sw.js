@@ -1,4 +1,4 @@
-const CACHE = 'meal-cheat-v4';
+const CACHE = 'meal-cheat-v5';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -30,7 +30,6 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // Network-first for HTML documents so app updates arrive immediately
   if (req.mode === 'navigate' || url.pathname.endsWith('.html')) {
     event.respondWith(
       fetch(req)
@@ -44,7 +43,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for hashed JS/CSS chunks, icons, and unlockable .glb accessories
   event.respondWith(
     caches.match(req).then((cached) => {
       if (cached) return cached;
